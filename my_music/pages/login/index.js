@@ -66,7 +66,7 @@ Page({
 
   },
   // 表单输入
-  handleInput: function (event) {
+  handleInput (event) {
     // todo 防抖
     const type = event.currentTarget.dataset.type;
     const value = event.detail.value;
@@ -75,7 +75,7 @@ Page({
     })
   },
   // 格式校验
-  validForm: function () {
+  validForm () {
     const { phone, password } = this.data;
     if (!phone) {
       wx.showToast({
@@ -102,14 +102,14 @@ Page({
     return true;
   },
   // 登录
-  login: function () {
+  login () {
     const validFlag = this.validForm();
     if (!validFlag) return;
 
     this.loginReq();
   },
   // 登录请求
-  loginReq: async function () {
+  async loginReq () {
     const { phone, password } = this.data;
     const { code, msg, profile } = await request.get('/login/cellphone', { phone, password, isLogin: true });
     if (code === 200) {

@@ -36,13 +36,13 @@ Page({
       recentPlayList: data
     })
   },
-  handleTouchStart: function (event) {
+  handleTouchStart (event) {
     this.setData({
       coverTransition: ''
     })
     startY = event.touches[0].clientY;
   },
-  handleTouchMove: function (event) {
+  handleTouchMove (event) {
     moveY = event.touches[0].clientY;
     moveDistance = moveY - startY;
     if ((moveDistance < 0) || (moveDistance > 80)) {
@@ -52,14 +52,14 @@ Page({
       coverTransform: moveDistance
     })
   },
-  handleTouchEnd: function () {
+  handleTouchEnd () {
     this.setData({
       coverTransform: 0,
       coverTransition: 'transform .5s linear'
     })
   },
   // 跳转至登录页
-  toLogin: function () {
+  toLogin () {
     wx.navigateTo({
       url: '/pages/login/index',
     });
