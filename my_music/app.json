@@ -3,7 +3,9 @@
     "pages/index/index",
     "pages/personal/index",
     "pages/video/index",
-    "pages/login/index"
+    "pages/login/index",
+    "pages/recommendSong/index",
+    "pages/song/index"
   ],
   "window": {
     "navigationBarBackgroundColor": "#d43c33",
@@ -31,6 +33,7 @@
       "selectedIconPath": "/static/images/tabs/tab-my-current.png"
     }]
   },
+  "requiredBackgroundModes":["audio"],
   "style": "v2",
   "sitemapLocation": "sitemap.json"
 }

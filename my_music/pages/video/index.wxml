@@ -8,8 +8,42 @@
   <!-- 导航区域 -->
   <scroll-view scroll-x class="navScroll" enable-flex scroll-into-view="{{'scroll' + navId}}" scroll-with-animation>
     <view id="{{'scroll' + item.id}}" class="navItem" wx:for="{{videoGroupList}}" wx:key="id">
-      <view class="navContent {{navId === item.id?'active': ''}}" bindtap="changeNav" data-navId="{{item.id}}">
+      <view class="navContent {{navId === item.id?'active': ''}}" bindtap="changeNav" data-id="{{item.id}}">
         {{item.name}}
+      </view>
+    </view>
+  </scroll-view>
+  <!-- 视频区域 -->
+  <scroll-view class="videoScroll" scroll-y
+   bindrefresherrefresh="handleRefresher" refresher-enabled refresher-triggered="{{isTriggered}}"
+   bindscrolltolower="handleToLower"
+  >
+    <view class="videoItem" wx:for="{{videoList}}" wx:key="vid">
+      <video id="{{item.vid}}" class="common" 
+      src="{{item.urlInfo.url}}" bindplay="handlePlay"
+       poster="{{item.coverUrl}}" object-fit="cover" 
+       wx:if="{{videoId === item.vid}}" 
+       bindtimeupdate="handleTimeUpdate"
+       bindended="handleEnd"
+      />
+      <image wx:else id="{{item.vid}}" bindtap="handlePlay" class="common" src="{{item.coverUrl}}" />
+      <view class="content">{{item.title}}</view>
+      <view class="footer">
+        <image class="avatar" src="{{item.creator.avatarUrl}}"></image>
+        <text class="nickName">{{item.creator.nickname}}</text>
+        <view class="comments_praised">
+          <text class="item">
+            <text class="iconfont icon-xihuan"></text>
+            <text class="count">{{item.praisedCount}}</text>
+          </text>
+          <text class="item">
+            <text class="iconfont icon-pinglun"></text>
+            <text class="count">{{item.commentCount}}</text>
+          </text>
+          <button open-type="share" class="item btn">
+            <text class="iconfont icon-gengduo"></text>
+          </button>
+        </view>
       </view>
     </view>
   </scroll-view>

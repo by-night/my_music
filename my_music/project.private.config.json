@@ -1,4 +1,5 @@
 {
+  "setting": {},
   "condition": {
     "plugin": {
       "list": []
@@ -14,6 +15,25 @@
         {
           "name": "personal",
           "pathName": "pages/personal/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "video",
+          "pathName": "pages/video/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "recommendSong",
+          "pathName": "pages/recommendSong/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "song",
+          "pathName": "pages/song/index",
+          "query": "",
           "scene": null
         }
       ]
